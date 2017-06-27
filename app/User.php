@@ -32,4 +32,9 @@ class User extends Authenticatable
         return 'username';
     }
 
+    public function posts()
+    {
+        return Post::all()->where('user_id', $this->id)->sortByDesc('created_at');
+    }
+
 }
