@@ -18,3 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('posts', 'PostController', ['except' => 'show']);
+
+Route::get('/profile/{user}', 'ProfileController@show');
