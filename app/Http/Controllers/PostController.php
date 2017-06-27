@@ -21,7 +21,16 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'body' => 'required|max:140',
+        ]);
+
+        $post = new Post();
+        $post->user_id = auth()->user()->id;
+        $post->body = $request->body;
+        $post->save();
+
+        return back();
     }
 
 }
