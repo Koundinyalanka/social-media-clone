@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('posts', 'PostController', ['except' => 'show']);
+Route::get('/posts', 'PostController@index');
+Route::post('/posts', 'PostController@store');
 
 Route::get('/profile/{user}', 'ProfileController@show');

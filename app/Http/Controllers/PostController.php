@@ -19,27 +19,7 @@ class PostController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-    public function create()
-    {
-        return view('posts.edit');
-    }
-
     public function store(Request $request)
-    {
-        //
-    }
-
-    public function edit(Post $post)
-    {
-        return view('posts.edit', compact('post'));
-    }
-
-    public function update(Request $request, Post $post)
-    {
-        //
-    }
-
-    public function destroy(Post $post)
     {
         //
     }
