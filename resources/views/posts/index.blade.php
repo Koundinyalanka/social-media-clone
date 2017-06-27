@@ -10,18 +10,12 @@
             </div>
             <div class="col-md-6">
                 <div class="panel panel-default">
-                    <li class="list-group-item">
-                        <p><a>Author</a> | Timestamp</p>
-                        <p>Body</p>
-                    </li>
-                    <li class="list-group-item">
-                        <p>Author | Timestamp</p>
-                        <p>Body</p>
-                    </li>
-                    <li class="list-group-item">
-                        <p>Author | Timestamp</p>
-                        <p>Body</p>
-                    </li>
+                    @foreach($posts as $post)
+                        <li class="list-group-item">
+                            <p><a>{{ $post->user->name }}</a> | {{ $post->created_at->diffForHumans() }}</p>
+                            <p>{{ $post->body }}</p>
+                        </li>
+                    @endforeach
                 </div>
             </div>
             <div class="col-md-3 hidden-sm hidden-xs">
