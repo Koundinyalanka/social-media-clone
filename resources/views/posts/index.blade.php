@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
-@section('content')
+@section('body')
     <form method="post">
         {{ csrf_field() }}
         <div class="form-group">

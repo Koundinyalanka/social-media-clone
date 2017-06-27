@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
-@section('content')
+@section('body')
     <div class="panel panel-default">
         @include('snippets.post_list')
     </div>
