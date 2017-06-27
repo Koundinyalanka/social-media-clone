@@ -14,7 +14,8 @@ class ProfileController extends Controller
 
     public function show(User $user)
     {
-        return view('profile.show', compact('user'));
+        $posts = $user->posts();
+        return view('profile.show', compact('user','posts'));
     }
 
 }
