@@ -10,12 +10,7 @@
             </div>
             <div class="col-md-6">
                 <div class="panel panel-default">
-                    @foreach($posts as $post)
-                        <li class="list-group-item">
-                            <p><a>{{ $post->user->name }}</a> | {{ $post->created_at->diffForHumans() }}</p>
-                            <p>{{ $post->body }}</p>
-                        </li>
-                    @endforeach
+                    @include('snippets.post_list')
                 </div>
             </div>
             <div class="col-md-3 hidden-sm hidden-xs">
