@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('posts', 'PostController');
+Route::resource('posts', 'PostController', ['except' => 'show']);
