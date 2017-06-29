@@ -30,7 +30,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->save();
 
-        return response('Post Saved', 200);
+        return back();
     }
 
 }
