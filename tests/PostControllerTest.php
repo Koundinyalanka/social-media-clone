@@ -54,12 +54,12 @@ class PostControllerTest extends TestCase
 
         $response = $this->actingAs($user)->call('POST', '/posts', []);
 
-        $this->assertResponseStatus(302, $response);
+        $this->assertEquals(302, $response->status(), "Validation accepted a post without a body");
 
         $response = $this->actingAs($user)->call('POST', '/posts', [
-            'body' => 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            'body' => str_repeat('a', 141)
         ]);
 
-        $this->assertResponseStatus(302, $response);
+        $this->assertEquals(302, $response->status(), "Validation accepted a post with a body of length 141");
     }
 }
