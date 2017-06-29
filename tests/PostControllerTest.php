@@ -9,13 +9,13 @@ class PostControllerTest extends TestCase
 {
     use DatabaseTransactions;
 
-    public function test_guest_is_redirected()
+    public function test_redirect_guest()
     {
         $this->visit('/posts')
             ->seePageIs('/login');
     }
 
-    public function test_user_can_access()
+    public function test_allow_user_access()
     {
         $user = factory(User::class)->create();
 
@@ -24,7 +24,7 @@ class PostControllerTest extends TestCase
             ->seePageIs('/posts');
     }
 
-    public function test_post_display()
+    public function test_display_posts()
     {
         $user = factory(User::class)->create();
         $post = factory(Post::class)->create();
@@ -34,7 +34,7 @@ class PostControllerTest extends TestCase
             ->see($post->body);
     }
 
-    public function test_post_store()
+    public function test_save_new_post()
     {
         $user = factory(User::class)->create();
         $body = Factory::create()->text(140);
@@ -48,7 +48,7 @@ class PostControllerTest extends TestCase
             ->see($body);
     }
 
-    public function test_post_store_validation()
+    public function test_validate_new_post()
     {
         $user = factory(User::class)->create();
 
